@@ -1,23 +1,40 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<div class="jumbotron" ng-controller="MainCtrl">
+
+
+  <div class="container" ng-repeat="post in currentPosts">
+    <div class="row" style="border:1px solid;">
+      <div class="col-xs-12 col-md-8 col-md-offset-2" style="border:1px solid red;">
+        <div class="container">
+          <div class="row title-row">
+            {{post.title}}
+          </div>
+          <div class="content row">
+{{post.excerpt}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<div class="row" style="border:1px solid;">
+      <div class="col-xs-12 col-md-8 col-md-offset-2" style="border:1px solid red;">
+        drugi psost
+      </div>
+    </div>
+    <div class="row" style="border:1px solid;">
+      <div class="col-xs-12 col-md-8 col-md-offset-2" style="border:1px solid red;">
+        Treci psost
+      </div>
+    </div>-->
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+<ul class="pagination" ng-repeat="page in pages">
+  <!--<li><a href="#">&laquo;</a></li>
+  <li><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#">&raquo;</a></li>-->
+  <li><a ng-click="setPage(page)">{{page}}</a></li>
+</ul>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
 </div>

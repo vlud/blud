@@ -158,3 +158,12 @@ td, tr{
   width:40%;
   text-transform: uppercase;
 }
+
+.title-row {
+  font-size: 2em;
+  text-align: left;
+  font-weight: 600;
+  font-family: Arial;
+  color: gray;
+  padding-bottom: 4px;
+}
