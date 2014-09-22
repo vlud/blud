@@ -2,39 +2,27 @@
 
 
   <div class="container" ng-repeat="post in currentPosts">
-    <div class="row" style="border:1px solid;">
-      <div class="col-xs-12 col-md-8 col-md-offset-2" style="border:1px solid red;">
-        <div class="container">
-          <div class="row title-row">
-            {{post.title}}
+    <div class="row single-post">
+      <div class="col-xs-12 col-md-8 col-md-offset-2" >
+        <div class="container post-container">
+          <div class="row title-row"><a ng-bind-html="post.title" ng-href="#/blog/{{$index}}"></a>
           </div>
+          <p class="post-date">{{post.date}}</p>
+          <p>
           <div class="content row">
-{{post.excerpt}}
+            <div class="picture col-sm-2 col-xs-12">SLIKA</div>
+            <div class="details col-sm-10 col-xs-12" ng-bind-html="post.excerpt"></div>
+
           </div>
         </div>
       </div>
     </div>
-    <!--<div class="row" style="border:1px solid;">
-      <div class="col-xs-12 col-md-8 col-md-offset-2" style="border:1px solid red;">
-        drugi psost
-      </div>
-    </div>
-    <div class="row" style="border:1px solid;">
-      <div class="col-xs-12 col-md-8 col-md-offset-2" style="border:1px solid red;">
-        Treci psost
-      </div>
-    </div>-->
+
 </div>
 
 <ul class="pagination" ng-repeat="page in pages">
-  <!--<li><a href="#">&laquo;</a></li>
-  <li><a href="#">1</a></li>
-  <li><a href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#">4</a></li>
-  <li><a href="#">5</a></li>
-  <li><a href="#">&raquo;</a></li>-->
-  <li><a ng-click="setPage(page)">{{page}}</a></li>
+
+  <li><a ng-click="setPage(page)" ng-disabled="{{page}}===currentPage">{{page}}</a></li>
 </ul>
 
 </div>

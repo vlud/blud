@@ -1,17 +1,28 @@
 <div class="jumbotron container" ng-controller="PhonesCtrl">
 
 	<div class="container">
+	 	<div class="col-md-3">
+	 	<div ng-repeat="gd in groupedDetails">
+	 		<div><strong>{{locale[gd.type]}}</strong></div>
+	 		<!--<select ng-model="lolFilterModel" ng-options="item as item for item in gd.items">
+				</select>-->
+			<div class="grouped-stuff" ng-repeat="item in gd.items">
+				<!--<checkbox>{{item}}</checkbox><span>{{item}}</span>-->
+				<input type="checkbox" ng-model="item.selected" ng-change="applyToFilter(item.value, gd.type)">{{item.value}}</input>
+			</div>
+	 	</div>
 
+	 	</div>
+<div class="col-md-9">
 		Search: <input ng-model="searchText">
-		<div ng-repeat="detail in groupedDetails">
+		<!--<div ng-repeat="detail in groupedDetails">
 			
 				<select ng-model="lolFilterModel" ng-options="item as item for item in detail.items">
-					<!--<option value="{{detailValue}}">{{detailValue}}</option>  ng-repeat="detailValue in detail.items"-->
 				</select>
 			
-		</div>
+		</div>-->
 
-		<ul ng-repeat="phone in phones | filter:searchText" style="list-style:none" id="searchTestResults">
+		<ul ng-repeat="phone in phones | filter:searchText | customFilter:filters" style="list-style:none" id="searchTestResults">
 
 			<li class="phone" ng-click="setPhone(phone.id)">
 				<a >
@@ -21,6 +32,7 @@
 			</li>
 
 		</ul>
+	</div>
 	</div>
 
 	<!--<table ng-hide="selectedPhoneId === 0" class="container">
@@ -41,7 +53,7 @@
 				</p>
 				<table style="width:100%">
 					<tr ng-repeat="(key, value) in selectedPhoneDetails">
-						<td class="selected-phone-prop">{{key}}</td>
+						<td class="selected-phone-prop">{{locale[key]}}</td>
 						<td class="selected-phone-value">{{value}}</td>
 					</tr>
 				</table>

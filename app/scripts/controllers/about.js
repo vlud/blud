@@ -9,9 +9,17 @@
  */
 angular.module('testAppApp')
   .controller('AboutCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+
+    $scope.selectedTab = 1;
+
+    $scope.setSelectedTab = function(tab) {
+    	console.log('setSelectedTab ' + tab);
+    	$scope.selectedTab = tab;
+    }
+
+    $scope.openPositions = [
+    {
+    	'position' : 'Backend developer',
+    	'description' : 'Ukoliko ste izrazito neprivlačni, nemate prijatelja i život, savršeno ćete se uklopiti. Ako nešto i znate to je +.'
+    }]
   });

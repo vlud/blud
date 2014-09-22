@@ -1,6 +1,45 @@
-<div class="jumbotron">
-  <h1>About View</h1>
+<div class="container">
+    <div id="content">
+        <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+            <li class="active" ng-click="setSelectedTab(1)"><a data-toggle="tab">O firmi</a></li>
+            <li><a data-toggle="tab" ng-click="setSelectedTab(2)">Rad u našoj firmi</a></li>
+            <li><a data-toggle="tab" ng-click="setSelectedTab(3)">Naši djelatnici</a></li>
+        </ul>
+        <div id="my-tab-content" class="tab-content">
+            <div class="tab-pane" id="red" ng-class="{active:selectedTab===1}">
+                <h1>O nama</h1>
+                <div class="about-us-container">
+                	NSoft je mlada firma, i svi smo ludi i tako to. Sastoji se od oku ugodnih frontend developerica i developera, kao i od njihove čiste suprotnosti na serveru. Takoder, tu su i system admini, što je ljepši izraz za luđaci.
+                </div>
+                <img src="http://www.bb-team.org/?ACT=8&fid=40&aid=30049_h1a9URroFRI9WWyfK4ZN&board_id=1" alt="party server odjela nadmasio je sva ocekivanja">
+                <p>Party server odjela koji je izmakao kontroli</p>
+            </div>
+            <div class="tab-pane" id="orange" ng-class="{active:selectedTab===2}">
+                <h1>Rad u firmi</h1>
+                <p>Ukoliko ste mladi, ambiciozni, i prije svega, nemate para i trebate iste zaraditi, dobrodošli ste da se javite na otvoreni natječaj u firmi za sve pozicije</p>
 
-  Welcome bitch
-
+                <br>
+                <h3>Otvorene pozicije</h3>
+				<div class="container open-positions" ng-repeat="openP in openPositions">
+					<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 open-position">
+                		<h4 class="open-position-header">{{openP.position}}</h4>
+                		<div class="position-description">{{openP.description}}</div>
+                	</div>
+				</div>
+                
+            </div>
+            <div class="tab-pane" id="yellow" ng-class="{active:selectedTab===3}">
+                <h1>Djelatnici</h1>
+                <p>Nemam više volje smišljati fore</p>
+            </div>
+            <!--<div class="tab-pane" id="green">
+                <h1>Green</h1>
+                <p>green green green green green</p>
+            </div>
+            <div class="tab-pane" id="blue">
+                <h1>Blue</h1>
+                <p>blue blue blue blue blue</p>
+            </div>-->
+        </div>
+    </div>
 </div>

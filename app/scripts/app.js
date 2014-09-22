@@ -41,11 +41,35 @@ angular
         controller: 'PhonesCtrl'
       })
 
-      .when('/phones/:phoneId', {
-        templateUrl: 'views/phone_details.html',
-        controller: 'PhonedetailsCtrl'
+      .when('/blog/:param', {
+        templateUrl: 'views/blog.html',
+        controller: 'BlogCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .filter('customFilter', function( ){
+  	return function (arr, filtrs){
+  		var new_arr = [];
+
+  		for(var i in arr){
+  			new_arr.push(arr[i])
+  		}
+  		var filtr;
+  		for(var i in filtrs){
+  			if(filtrs[i].length === 0){
+  				continue;
+  			}
+  			filtr = filtrs[i]
+  			for(var j = new_arr.length - 1; j >= 0; j--){
+  				if( filtr.indexOf(new_arr[j][i]) === -1 ){
+  					new_arr.splice(j, 1);
+  				}
+  			}
+  		}
+  		return new_arr;
+  	}
   });
+
+  var blogPosts = [];

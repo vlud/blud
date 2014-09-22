@@ -167,3 +167,18 @@ td, tr{
   color: gray;
   padding-bottom: 4px;
 }
+
+p.post-date{
+  text-align: right;
+  font-size: 0.8em;
+  color: gray;
+}
+
+.single-post{
+  margin-bottom:3px;
+}
+
+.post-container{
+  border:1px solid gray;
+  border-radius: 6px;
+}

@@ -2,16 +2,12 @@
 
 /**
  * @ngdoc function
- * @name testAppApp.controller:MainCtrl
+ * @name testAppApp.controller:HelpCtrl
  * @description
- * # MainCtrl
+ * # HelpCtrl
  * Controller of the testAppApp
  */
 angular.module('testAppApp')
   .controller('HelpCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+
   });

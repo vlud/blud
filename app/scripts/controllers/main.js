@@ -24,30 +24,32 @@ angular.module('testAppApp')
        .then(function(res){
 
           $scope.posts = res.data;  
+          blogPosts = res.data; //global variable
           var totalItems = $scope.posts.length;
           $scope.postsSplitted = [];
           var tmpPosts = [];
 
           for(var i = 0; i< totalItems; i++){
-            if( i%$scope.maxPosts != $scope.maxPosts - 1 ){
-              tmpPosts.push($scope.posts[i]);
-            } else {
+            tmpPosts.push($scope.posts[i]);
+            if( i%$scope.maxPosts === $scope.maxPosts - 1 ){
               $scope.postsSplitted.push(tmpPosts);
               tmpPosts = [];
             }
+            
+              
           }
 
           if(tmpPosts.length > 0){
             $scope.postsSplitted.push(tmpPosts);
           }
 
-          $scope.maxPaging = $scope.postsSplitted.length -1;
+          $scope.maxPaging = $scope.postsSplitted.length ;
 
           $scope.currentPosts = $scope.postsSplitted[$scope.currentPage -1 ];
 
           $scope.pages = [];
 
-          for(var i=1; i< $scope.postsSplitted.length; i++){
+          for(var i=1; i<= $scope.postsSplitted.length; i++){
             $scope.pages.push(i);
           }
           
@@ -84,10 +86,9 @@ angular.module('testAppApp')
 
 	  $scope.setPage = function (pageNo) {
 
-      console.log(pageNo);
 	    $scope.currentPage = pageNo;
       $scope.currentPosts = $scope.postsSplitted[pageNo -1 ];
-      console.log($scope.currentPosts)
+
 	  };
 
 	  $scope.pageChanged = function() {

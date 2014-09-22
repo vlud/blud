@@ -1,6 +1,44 @@
-<div class="jumbotron">
-  <h1>Contacts View</h1>
+<div class="jumbotron container">
+  <h1>Posaljite email</h1>
+  <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
 
-  Welcome to contacts
+    <!--<div id="messages" class="alert alert-success" data-ng-show="userMessage" data-ng-bind="userMessage"></div>-->
+    <div class="alert alert-dismissible" role="alert" ng-show="userMessage" ng-class="{ 'alert-success':userMessageSuccess, 'alert-warning':!userMessageSuccess}">
+	  <button type="button" class="close" ng-click="userMessage = ''"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	  <strong data-ng-bind="userMessage">Warning!</strong>
+	</div>
+
+
+	  <form ng-submit="formProcess()" >
+		<div id="name-group" class="form-group" ng-class="{ 'has-error' : error.full_name }" ng-click="error.full_name = false">
+			<label>Name</label>
+			<input type="text" class="form-control" ng-model="formParams.full_name" />
+			<span class="help-block"></span>
+		</div>
+
+		<div id="email-group" class="form-group" ng-class="{ 'has-error' : error.email }" ng-click="error.email = false">
+			<label>Email</label>
+			<input type="text" class="form-control" ng-model="formParams.email" />
+			<span class="help-block"></span>
+		</div>
+
+		<div id="subject-group" class="form-group" ng-class="{ 'has-error' : error.subject }" ng-click="error.subject = false">
+			<label>Subject</label>
+			<input type="text" class="form-control" ng-model="formParams.subject" />
+			<span class="help-block"></span>
+		</div>
+
+		<div id="message-group" class="form-group" ng-class="{ 'has-error' : error.message }" ng-click="error.message = false">
+			<label>Message</label>
+			<textarea class="form-control"  ng-model="formParams.message" ></textarea>
+			<span class="help-block"></span>
+		</div>
+
+		<button type="submit" class="btn btn-success btn-lg btn-block">
+			<span class="glyphicon glyphicon-flash"></span> Submit!
+		</button>
+
+	  </form>
+	</div>
 
 </div>
