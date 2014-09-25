@@ -182,3 +182,26 @@ p.post-date{
   border:1px solid gray;
   border-radius: 6px;
 }
+
+.filter-header  {
+  width: 100%;
+  text-align: left;
+  color: #41416B;
+  background: none repeat scroll 0% 0% #C7C9C0;
+  margin-bottom: 1px;
+  padding: 4px;
+}
+
+.single-filter{
+  text-align: left;
+  padding-left: 4px;
+}
+
+.filter-container{
+  border: 1px solid aliceblue;
+  background: rgb(237, 240, 196);
+}
+
+.post-img{
+  width:100%;
+}

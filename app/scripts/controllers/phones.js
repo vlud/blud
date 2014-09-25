@@ -64,10 +64,12 @@ angular.module('testAppApp')
 
                 /*$scope.groupedDetails[j] = {};  
                 $scope.groupedDetails[j].items = [];*/
+                var hidden = used.length > 2;
                 $scope.groupedDetails.push({
                   type : j,
                   items:[], 
-                  usedValues : []
+                  usedValues : [],
+                  hidden : hidden
                 });
                 used.push(j);
                 idx = used.indexOf(j);
@@ -133,6 +135,22 @@ angular.module('testAppApp')
       }
     }
 
+    $scope.isHiddenFilter = function(filtr){
+      for(var i in $scope.groupedDetails){
+        if($scope.groupedDetails[i].type == filtr){
+          return $scope.groupedDetails[i].hidden;
+        }
+      }
+    }
+
+    $scope.showHideFilter = function(type){
+      for(var i in $scope.groupedDetails){
+        if($scope.groupedDetails[i].type == type){
+          $scope.groupedDetails[i].hidden = !$scope.groupedDetails[i].hidden;
+          break;
+        }
+      }
+    }
 
   	//$scope.phones = phones.phones;
   });

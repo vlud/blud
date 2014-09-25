@@ -3,24 +3,29 @@
 	<div class="container">
 	 	<div class="col-md-3">
 	 	<div ng-repeat="gd in groupedDetails">
-	 		<div><strong>{{locale[gd.type]}}</strong></div>
+	 		<div class="filter-header" ng-click="showHideFilter(gd.type)"><strong>{{locale[gd.type]}}</strong></div>
 	 		<!--<select ng-model="lolFilterModel" ng-options="item as item for item in gd.items">
 				</select>-->
-			<div class="grouped-stuff" ng-repeat="item in gd.items">
-				<!--<checkbox>{{item}}</checkbox><span>{{item}}</span>-->
-				<input type="checkbox" ng-model="item.selected" ng-change="applyToFilter(item.value, gd.type)">{{item.value}}</input>
+				<div class="filter-container" ng-hide="isHiddenFilter(gd.type)">
+					<div class="grouped-stuff single-filter" ng-repeat="item in gd.items">
+						<!--<checkbox>{{item}}</checkbox><span>{{item}}</span>-->
+					<input type="checkbox" ng-model="item.selected" ng-change="applyToFilter(item.value, gd.type)">{{item.value}}</input>
+				</div>
 			</div>
 	 	</div>
 
 	 	</div>
-<div class="col-md-9">
+	<div class="col-md-9">
+		<div class="row">
 		Search: <input ng-model="searchText">
+		</div>
 		<!--<div ng-repeat="detail in groupedDetails">
 			
 				<select ng-model="lolFilterModel" ng-options="item as item for item in detail.items">
 				</select>
 			
 		</div>-->
+		<div>
 
 		<ul ng-repeat="phone in phones | filter:searchText | customFilter:filters" style="list-style:none" id="searchTestResults">
 
@@ -32,6 +37,7 @@
 			</li>
 
 		</ul>
+		</div>
 	</div>
 	</div>
 
